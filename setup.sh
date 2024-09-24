@@ -10,11 +10,9 @@ sudo apt install python3 python3-pip -y
 pip3 install selenium
 pip3 install webdriver_manager
 pip3 install requests
-pip3 install pyperclip
-pip3 install geopy
 pip3 install pydub
 pip3 install beautifulsoup4
-pip3 install dotenv
+pip3 install python-dotenv
 pip3 install flask  # Adicionando Flask
 
 # Instalar Google Chrome e ChromeDriver
@@ -23,8 +21,6 @@ sudo apt update
 sudo apt upgrade
 sudo apt install ./google-chrome-stable_current_amd64.deb -y
 
-# Instalar ffmpeg para dependências do pydub
-sudo apt install ffmpeg -y
 
 # Corrigir erros comuns atualizando bibliotecas
 pip3 install --upgrade requests urllib3 chardet
