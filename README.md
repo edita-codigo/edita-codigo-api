@@ -397,8 +397,7 @@ edita-codigo-api/
 ├── editacodigo.py
 ├── api_manager.py
 ├── editafuncao.py
-└── docs/
-    └── OUTROS_ARQUIVOS.md
+
 ```
 
 **Links Importantes:**
