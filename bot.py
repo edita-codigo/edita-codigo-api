@@ -57,7 +57,11 @@ editacodigo = load_editacodigo(api_url, token)
 
 classes = editacodigo.obter_classes_whatsapp(token)
 
-driver = editacodigo.carregar_chrome_audio(download_arquivos,sessao_pasta,site)
+#ESSE ABE VIA TRMINAL PRA RODAR EM VPS
+driver = editacodigo.carregar_chrome_terminal_audio(download_arquivos,sessao_pasta,site)
+
+#ESSE ABRE EM NAVEGADOR VISIVEL
+#driver = editacodigo.carregar_chrome_audio(download_arquivos,sessao_pasta,site)
 
 filas = {}
 
