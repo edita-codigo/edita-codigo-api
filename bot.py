@@ -30,7 +30,7 @@ load_dotenv()
 download_arquivos = os.environ.get('DOWNLOAD_ARQUIVOS')
 sessao_pasta = os.environ.get('SESSAO_PASTA')
 site = os.environ.get('SITE')
-servidor = os.environ.get('SERVIDOR')
+servidor = os.environ.get('WEBHOOK')
 usuario = os.environ.get('USUARIO')
 
 porta = os.environ.get('PORTA')
@@ -43,7 +43,7 @@ agent = {"User-Agent": 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (
 print("DOWNLOAD_ARQUIVOS:", download_arquivos)
 print("SESSAO_PASTA:", sessao_pasta)
 print("SITE:", site)
-print("SERVIDOR:", servidor)
+print("WEBHOOK:", servidor)
 print("USUARIO:", usuario)
 print("PORTA:", porta)
 print("API:", api)
@@ -52,10 +52,10 @@ print("TOKEN:", token)
 api_url = api
 token = token
 
+
 editacodigo = load_editacodigo(api_url, token)
 
-
-classes = editacodigo.obter_classes_whatsapp('xgLNUFtZsAbhZZaxkRh5ofM6Z0YIXwwv')
+classes = editacodigo.obter_classes_whatsapp(token)
 
 driver = editacodigo.carregar_chrome_audio(download_arquivos,sessao_pasta,site)
 
