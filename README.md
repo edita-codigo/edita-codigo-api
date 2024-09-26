@@ -115,6 +115,42 @@ Para utilizar a API, é necessário obter um **Token de Autenticação**. Você 
    - O token geralmente é uma sequência de caracteres alfanuméricos única.
    - **Copie o Token** e guarde-o em um lugar seguro.
 
+
+
+Aqui está o trecho que você pode adicionar ao seu `README.md`, oferecendo a opção de alterar o código no arquivo `bot.py` para rodar a API via terminal ou abrir um navegador visível:
+
+---
+
+### Alteração de Modo de Execução do Navegador
+
+Você pode configurar a API para rodar o navegador Chrome de duas maneiras diferentes no arquivo `bot.py`:
+
+1. **Execução via Terminal (Headless Mode)**: O navegador rodará em modo invisível, ideal para VPS.
+2. **Execução com Navegador Visível**: O navegador será aberto visivelmente para monitoramento manual.
+
+#### Como Alterar:
+
+- **Rodar via Terminal (Headless)**:
+
+  Para rodar o Chrome em modo terminal (sem abrir o navegador visível), utilize o seguinte código no arquivo `bot.py`:
+
+  ```python
+  driver = editacodigo.carregar_chrome_terminal_audio(download_arquivos, sessao_pasta, site)
+  ```
+
+- **Rodar com Navegador Visível**:
+
+  Caso queira que o navegador Chrome seja aberto visivelmente, com interface gráfica, use a linha abaixo (remova o comentário):
+
+  ```python
+  #driver = editacodigo.carregar_chrome_audio(download_arquivos, sessao_pasta, site)
+  ```
+
+**Por padrão**, o navegador está configurado para rodar via terminal. Se você quiser abrir o navegador visível, remova o `#` no início da linha correspondente e comente a linha que roda no terminal.
+
+---
+
+Esse trecho pode ser facilmente editado por você no `README.md`, oferecendo flexibilidade para quem quiser modificar o modo de execução do navegador no código.
 **Importante:**
 
 - **Segurança do Token:**
