@@ -1,6 +1,6 @@
-# API de Automação de WhatsApp com Selenium e Flask
+# Edita-Codigo API
 
-Esta API permite a automação de ações no WhatsApp utilizando Selenium para interagir com a interface web do WhatsApp e Flask para comunicação via endpoints HTTP. Com esta API, você pode enviar mensagens, mídias, gerenciar enquetes, extrair contatos de grupos, entre outras funcionalidades.
+A **Edita-Codigo API** é uma API de automação para WhatsApp que utiliza **Selenium** para interagir com a interface web do WhatsApp e **Flask** para comunicação via endpoints HTTP. Com esta API, você pode enviar mensagens, mídias, gerenciar enquetes, extrair contatos de grupos, entre outras funcionalidades.
 
 ## Índice
 
@@ -11,8 +11,9 @@ Esta API permite a automação de ações no WhatsApp utilizando Selenium para i
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Gerenciamento de Processos com PM2](#gerenciamento-de-processos-com-pm2)
 - [Endpoints Disponíveis](#endpoints-disponíveis)
-- [Contribuição](#contribuição)
+- [Suporte](#suporte)
 - [Licença](#licença)
+- [Aviso Legal](#aviso-legal)
 
 ## Pré-requisitos
 
@@ -29,8 +30,8 @@ Antes de começar, certifique-se de ter os seguintes itens instalados no seu sis
 1. **Clone o Repositório**
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
+   git clone https://github.com/edita-codigo/edita-codigo-api.git
+   cd edita-codigo-api
    ```
 
 2. **Crie o Script de Instalação**
@@ -141,6 +142,8 @@ Antes de começar, certifique-se de ter os seguintes itens instalados no seu sis
 - `gerenciador.py`: Script principal que gerencia o bot, recebe comandos via CURL e interage com o PM2.
 - `bot.py`: Arquivo principal que contém a lógica do bot utilizando Selenium e Flask.
 - `.env`: Arquivo de configuração de variáveis de ambiente.
+- `AVISO_LEGAL.md`: Arquivo contendo o aviso legal separado.
+- `LICENSE`: Arquivo de licença MIT.
 - Outros arquivos auxiliares: `editacodigo.py`, `api_manager.py`, `editafuncao.py`, etc.
 
 ## Gerenciamento de Processos com PM2
@@ -267,35 +270,74 @@ curl -X POST http://localhost:5000/iniciar_processo \
          }'
 ```
 
-## Contribuição
+## Suporte
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests para melhorar este projeto.
+Para suporte, você pode:
 
-1. **Fork o Repositório**
-2. **Crie sua Feature Branch**
+- **Entrar no Grupo do WhatsApp:**
 
-   ```bash
-   git checkout -b feature/nova-feature
-   ```
+  [Grupo de Suporte no WhatsApp](https://chat.whatsapp.com/Ezuudcc4qPg1cfWuBxNFiM)
 
-3. **Commit suas Alterações**
+- **Contato Direto com o Desenvolvedor:**
 
-   ```bash
-   git commit -m "Adiciona nova feature"
-   ```
-
-4. **Push para a Branch**
-
-   ```bash
-   git push origin feature/nova-feature
-   ```
-
-5. **Abra um Pull Request**
+  [WhatsApp do Desenvolvedor](https://wa.me/EDITACODIGO)
 
 ## Licença
 
-Este projeto está licenciado sob a licença [MIT](LICENSE).
+Este projeto está licenciado sob a [Licença MIT](https://opensource.org/licenses/MIT).
+
+---
+
+## Aviso Legal
+
+Para mais informações sobre o uso responsável e as isenções de responsabilidade, consulte o [Aviso Legal](AVISO_LEGAL.md).
 
 ---
 
 **Nota:** Certifique-se de manter o arquivo `.env` seguro e nunca compartilhá-lo publicamente, pois ele contém informações sensíveis como tokens e configurações de acesso.
+
+# AVISO_LEGAL.md
+
+```markdown
+# Aviso Legal
+
+**Uso Responsável:** A **Edita-Codigo API** é fornecida para fins educacionais e de automação. É responsabilidade do usuário final garantir que o uso desta ferramenta esteja em conformidade com os Termos de Serviço do WhatsApp e todas as leis aplicáveis. O desenvolvedor **Edita-Codigo** não se responsabiliza por quaisquer ações legais, multas ou outras consequências decorrentes do uso inadequado desta API.
+
+**Isenção de Responsabilidade:** O software é fornecido "no estado em que se encontra", sem garantias de qualquer tipo. O desenvolvedor **Edita-Codigo** não é responsável por quaisquer danos diretos, indiretos, incidentais, especiais, consequenciais ou punitivos resultantes do uso ou da incapacidade de usar este software.
+
+**Respeito à Privacidade:** Ao utilizar esta API, assegure-se de respeitar a privacidade e os direitos dos usuários finais. Não utilize a API para fins maliciosos, spam ou qualquer atividade que viole a privacidade de terceiros.
+
+**Atualizações e Manutenção:** O desenvolvedor se reserva o direito de modificar, interromper ou descontinuar a API a qualquer momento, sem aviso prévio.
+
+---
+
+**Nota:** Certifique-se de manter o arquivo `.env` seguro e nunca compartilhá-lo publicamente, pois ele contém informações sensíveis como tokens e configurações de acesso.
+```
+
+---
+
+**Estrutura do Repositório:**
+
+```
+edita-codigo-api/
+├── AVISO_LEGAL.md
+├── LICENSE
+├── README.md
+├── setup.sh
+├── gerenciador.py
+├── bot.py
+├── .env
+├── editacodigo.py
+├── api_manager.py
+├── editafuncao.py
+└── docs/
+    └── OUTROS_ARQUIVOS.md
+```
+
+**Links Importantes:**
+
+- [Repositório no GitHub](https://github.com/edita-codigo/edita-codigo-api.git)
+- [Licença MIT](https://opensource.org/licenses/MIT)
+- [Grupo de Suporte no WhatsApp](https://chat.whatsapp.com/Ezuudcc4qPg1cfWuBxNFiM)
+- [WhatsApp do Desenvolvedor](https://wa.me/EDITACODIGO)
+
