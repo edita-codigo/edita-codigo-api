@@ -7,6 +7,7 @@ A **Edita-Codigo API** é uma API de automação para WhatsApp que utiliza **Sel
 - [Pré-requisitos](#pré-requisitos)
 - [Instalação](#instalação)
 - [Configuração](#configuração)
+  - [Obtenção do Token](#obtenção-do-token)
 - [Uso](#uso)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Gerenciamento de Processos com PM2](#gerenciamento-de-processos-com-pm2)
@@ -82,45 +83,91 @@ Antes de começar, certifique-se de ter os seguintes itens instalados no seu sis
 
 ## Configuração
 
-1. **Arquivo `.env`**
+### Obtenção do Token
 
-   Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
+Para utilizar a API, é necessário obter um **Token de Autenticação**. Você pode adquirir um token **gratuitamente** no site da Edita Código. Siga os passos abaixo para obter o seu token:
 
-   ```env
-   # Informações do usuário
-   USUARIO=seu_usuario_aqui
+1. **Acesse o Site da Edita Código:**
 
-   # Diretórios
-   DOWNLOAD_ARQUIVOS=/caminho/para/download
-   SESSAO_PASTA=/caminho/para/sessao
+   Visite o seguinte link:
 
-   # Configurações do servidor
-   WEBHOOK=http://seu_site
-   SITE=https://web.whatsapp.com
-   PORTA=5000  # Altere conforme necessário
-   API=https://editacodigo.com.br/api/
-   TOKEN=EDITACODIGO
-   ```
+   [Obtenha seu Token Aqui](https://editacodigo.com.br/editacodigo/api_detalhes.php)
 
-   **Descrição das Variáveis:**
+2. **Crie uma Conta ou Faça Login:**
 
-   - `USUARIO`: Nome de usuário para autenticação.
-   - `DOWNLOAD_ARQUIVOS`: Caminho para o diretório onde os arquivos baixados serão armazenados.
-   - `SESSAO_PASTA`: Caminho para o diretório de sessão do Selenium.
-   - `WEBHOOK`: URL do webhook para integração.
-   - `SITE`: URL do WhatsApp Web.
-   - `PORTA`: Porta na qual a API Flask será executada.
-   - `API`: URL da API utilizada para gerenciar ações.
-   - `TOKEN`: Token de autenticação para a API.
+   - **Novo Usuário:**
+     - Clique em **"Cadastrar"** ou **"Registrar"**.
+     - Preencha os dados solicitados (nome, e-mail, senha, etc.).
+     - Confirme o cadastro através do e-mail de verificação, se aplicável.
 
-2. **Configurar PM2**
+   - **Usuário Existente:**
+     - Clique em **"Login"** ou **"Entrar"**.
+     - Insira suas credenciais (e-mail e senha) para acessar sua conta.
 
-   O PM2 já está configurado para iniciar o `gerenciador.py` automaticamente durante a execução do `setup.sh`. Para garantir que o processo seja mantido em execução, você pode salvar a configuração do PM2:
+3. **Navegue até a Seção de APIs:**
 
-   ```bash
-   pm2 save
-   pm2 startup
-   ```
+   - Após o login, procure pelo menu ou seção intitulada **"APIs"**, **"Serviços"** ou similar.
+   - Clique em **"Detalhes da API"** ou **"Obter Token"**.
+
+4. **Obtenha o Seu Token:**
+
+   - Siga as instruções para gerar ou visualizar o seu token de autenticação.
+   - O token geralmente é uma sequência de caracteres alfanuméricos única.
+   - **Copie o Token** e guarde-o em um lugar seguro.
+
+**Importante:**
+
+- **Segurança do Token:**
+  - O token é uma credencial sensível que permite o acesso à API.
+  - **Não compartilhe** o seu token com terceiros.
+  - Evite expor o token em repositórios públicos ou em código-fonte compartilhado.
+
+- **Limitações e Restrições:**
+  - Verifique se há alguma limitação de uso ou restrições associadas ao token gratuito.
+  - Algumas APIs podem ter limites de requisições por minuto ou por dia.
+
+- **Suporte e Ajuda:**
+  - Se encontrar dificuldades para obter o token, entre em contato com o suporte da Edita Código através do site ou dos canais de contato disponíveis.
+
+### Configuração do Arquivo `.env`
+
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
+
+```env
+# Informações do usuário
+USUARIO=seu_usuario_aqui
+
+# Diretórios
+DOWNLOAD_ARQUIVOS=/caminho/para/download
+SESSAO_PASTA=/caminho/para/sessao
+
+# Configurações do servidor
+WEBHOOK=http://seu_site
+SITE=https://web.whatsapp.com
+PORTA=5000  # Altere conforme necessário
+API=https://editacodigo.com.br/api/
+TOKEN=SEU_TOKEN_AQUI
+```
+
+**Descrição das Variáveis:**
+
+- `USUARIO`: Nome de usuário para autenticação.
+- `DOWNLOAD_ARQUIVOS`: Caminho para o diretório onde os arquivos baixados serão armazenados.
+- `SESSAO_PASTA`: Caminho para o diretório de sessão do Selenium.
+- `WEBHOOK`: URL do webhook para integração.
+- `SITE`: URL do WhatsApp Web.
+- `PORTA`: Porta na qual a API Flask será executada.
+- `API`: URL da API utilizada para gerenciar ações.
+- `TOKEN`: **Seu Token de Autenticação** obtido no site da Edita Código.
+
+### Configurar PM2
+
+O PM2 já está configurado para iniciar o `gerenciador.py` automaticamente durante a execução do `setup.sh`. Para garantir que o processo seja mantido em execução, você pode salvar a configuração do PM2:
+
+```bash
+pm2 save
+pm2 startup
+```
 
 ## Uso
 
@@ -204,7 +251,7 @@ curl -X POST http://localhost:5000/webhook \
      -H "Content-Type: application/json" \
      -d '{
            "usuario": "seu_usuario_aqui",
-           "token": "EDITACODIGO",
+           "token": "SEU_TOKEN_AQUI",
            "action": "EnviarMsg",
            "message": {
                "telefone": "5511999999999",
@@ -264,7 +311,7 @@ curl -X POST http://localhost:5000/webhook \
 curl -X POST http://localhost:5000/iniciar_processo \
      -H "Content-Type: application/json" \
      -d '{
-           "chave": "EDITACODIGO",
+           "chave": "SEU_TOKEN_AQUI",
            "caminho_script": "/caminho/para/bot.py",
            "usuario": "usuario_exemplo"
          }'
@@ -296,25 +343,9 @@ Para mais informações sobre o uso responsável e as isenções de responsabili
 
 **Nota:** Certifique-se de manter o arquivo `.env` seguro e nunca compartilhá-lo publicamente, pois ele contém informações sensíveis como tokens e configurações de acesso.
 
-# AVISO_LEGAL.md
-
-```markdown
-# Aviso Legal
-
-**Uso Responsável:** A **Edita-Codigo API** é fornecida para fins educacionais e de automação. É responsabilidade do usuário final garantir que o uso desta ferramenta esteja em conformidade com os Termos de Serviço do WhatsApp e todas as leis aplicáveis. O desenvolvedor **Edita-Codigo** não se responsabiliza por quaisquer ações legais, multas ou outras consequências decorrentes do uso inadequado desta API.
-
-**Isenção de Responsabilidade:** O software é fornecido "no estado em que se encontra", sem garantias de qualquer tipo. O desenvolvedor **Edita-Codigo** não é responsável por quaisquer danos diretos, indiretos, incidentais, especiais, consequenciais ou punitivos resultantes do uso ou da incapacidade de usar este software.
-
-**Respeito à Privacidade:** Ao utilizar esta API, assegure-se de respeitar a privacidade e os direitos dos usuários finais. Não utilize a API para fins maliciosos, spam ou qualquer atividade que viole a privacidade de terceiros.
-
-**Atualizações e Manutenção:** O desenvolvedor se reserva o direito de modificar, interromper ou descontinuar a API a qualquer momento, sem aviso prévio.
-
 ---
 
-**Nota:** Certifique-se de manter o arquivo `.env` seguro e nunca compartilhá-lo publicamente, pois ele contém informações sensíveis como tokens e configurações de acesso.
-```
 
----
 
 **Estrutura do Repositório:**
 
@@ -340,4 +371,5 @@ edita-codigo-api/
 - [Licença MIT](https://opensource.org/licenses/MIT)
 - [Grupo de Suporte no WhatsApp](https://chat.whatsapp.com/Ezuudcc4qPg1cfWuBxNFiM)
 - [WhatsApp do Desenvolvedor](https://wa.me/EDITACODIGO)
+- [Obtenha seu Token Aqui](https://editacodigo.com.br/editacodigo/api_detalhes.php)
 
